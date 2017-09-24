@@ -15,9 +15,10 @@ start.py‚ÆtoolboxƒfƒBƒŒƒNƒgƒŠ‚Í“¯‚¶ƒfƒBƒŒƒNƒgƒŠ‚É“ü‚ê‚Ä‚­‚ê‚È‚¢‚ÆŽÀs‚Å‚«‚Ü‚¹‚ñ
 
 ‚È‚Ì‚ÅAnaconda‚ð“ü‚ê‚é‚±‚Æ‚ð„§‚µ‚Ü‚·D
 
-ƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚¢‚È‚¯‚ê‚Î‚µ‚ÄC
-ƒCƒ“ƒXƒg[ƒ‹‚µ‚½‚¯‚Çpath‚ª’Ê‚Á‚Ä‚¢‚È‚¢ê‡‚ÍCƒoƒbƒ`ƒtƒ@ƒCƒ‹‚âƒVƒFƒ‹‚ðŽg—p‚µ‚ÄCƒpƒX‚ð’Ê‚·‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢
+ƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚¢‚È‚¯‚ê‚Î‚µ‚ÄCƒCƒ“ƒXƒg[ƒ‹‚µ‚½‚¯‚Çpath‚ª’Ê‚Á‚Ä‚¢‚È‚¢ê‡‚ÍCƒoƒbƒ`ƒtƒ@ƒCƒ‹‚âƒVƒFƒ‹‚ðŽg—p‚µ‚ÄCƒpƒX‚ð’Ê‚·‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢
+
 set PATH = (Anaconda‚Ö‚ÌƒpƒX);%PATH% ƒoƒbƒ`ƒtƒ@ƒCƒ‹
+
 PATH = (Anaconda‚Ö‚ÌƒpƒX):$PATH ƒVƒFƒ‹ƒXƒNƒŠƒvƒg
 
 ‚ÅƒpƒX‚ð’Ê‚¹‚é‚Í‚¸
@@ -34,8 +35,7 @@ PATH = (Anaconda‚Ö‚ÌƒpƒX):$PATH ƒVƒFƒ‹ƒXƒNƒŠƒvƒg
 
 4.	mtdƒtƒ@ƒCƒ‹‚ðì¬‚·‚éÛC“¯–¼‚Ìƒtƒ@ƒCƒ‹‚ðÁ‚µ‚Ä‚©‚ço—Í‚³‚ê‚éD
 
-5. HyperVolume ‚âIGD‚ÌŒvŽZƒvƒƒOƒ‰ƒ€‚Ítoolbox/CalclatorƒfƒBƒŒƒNƒgƒŠ‚É‚ ‚é‚ªCˆÓ}“I‚É‚±‚ÌƒvƒƒWƒFƒNƒg‚É‚ÍÈ‚¢‚Ä‚¢‚éD“¯‚¶Œ¤‹†Žº‚ÌŠw¶‚È‚ç‚¢‚Â‚à‚Ì‚ ‚ê‚Å’Ê‚¶‚é‚ÆŽv‚¤DIGDŒvŽZƒvƒƒOƒ‰ƒ€‚ÍŽ©•ª‚Å‘‚¢‚½‚ªCƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‰ðÍ‚ÉŠO•”‚Ìsrc‚ðŽg—p‚µ‚½‚Ì‚Ågit‚É‚Íã‚°‚È‚¢D
-
+5DHpyerVolume‚âIGDŒvŽZƒXƒNƒŠƒvƒg‚Í•Ê“rì¬‚·‚é•K—v‚ª‚ ‚éD
 
 ŽÀ‘•Žv‘z
 --------
@@ -44,11 +44,13 @@ PATH = (Anaconda‚Ö‚ÌƒpƒX):$PATH ƒVƒFƒ‹ƒXƒNƒŠƒvƒg
 ‘½”–Ú“I‚É‚à‘Î‰ž‚Å‚«‚é‚æ‚¤‚ÉC•À—ñ‚Ås‚¤•K—v‚ ‚èD
 
 
+
+
 ŠeƒXƒNƒŠƒvƒgà–¾
 -----------------
 
 start.py
-	ƒƒCƒ“ƒXƒNƒŠƒvƒgCƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚ðŽg—p‚µ‚ÄŽÀs“à—e‚ðŒˆ’è‚·‚éD
+	ƒƒCƒ“ƒXƒNƒŠƒvƒg
 
 toolbox/CalcHV.py:
 
@@ -91,8 +93,7 @@ toolbox/GetFileName.py
 toolbox/MakeMTDFile/py
 	
 	Žw’è‚µ‚½ƒfƒBƒŒƒNƒgƒŠ‚ÌŽqCŽq‘·ƒfƒBƒŒƒNƒgƒŠ‚ð’Tõ‚µCFinalFUNƒfƒBƒŒƒNƒgƒŠ‚ð’Tõ‚µmtdƒtƒ@ƒCƒ‹‚ð¶¬‚·‚éD
-	Œ»
-
+	
 	
 ¡Œã‚Ì—\’è
 ----------
@@ -101,3 +102,5 @@ toolbox/MakeMTDFile/py
 	E•À—ñ‰»ˆ—
 	
 	EƒRƒ}ƒ“ƒh‚Ì[ŽÀ
+	
+	EƒOƒ‰ƒtƒvƒƒbƒgƒXƒNƒŠƒvƒg‚Ì’Ç‰Á
