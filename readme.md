@@ -1,104 +1,86 @@
-ŠT—v
+Overview
 ----
 
-‚±‚ÌƒXƒNƒŠƒvƒgŒQ‚ÍEMOƒAƒ‹ƒSƒŠƒYƒ€‚Ì•ªÍ—p‚Å‚·D
+This repository has python scripts analysing EMO algorithms.
 
-‹ï‘Ì“I‚É‚ÍCmtdƒtƒ@ƒCƒ‹¶¬CIGDŒvŽZCHyperVolumeŒvŽZ‚È‚Ç‚ðs‚¤ƒXƒNƒŠƒvƒg‚Æ‚È‚è‚Ü‚·D
+you must put toolbox folder and start.py script in the same directory.  
+moreover, you need to install numpy modules and multiprocessing module to utilize all of these scripts.
 
-start.py‚ÆtoolboxƒfƒBƒŒƒNƒgƒŠ‚Í“¯‚¶ƒfƒBƒŒƒNƒgƒŠ‚É“ü‚ê‚Ä‚­‚ê‚È‚¢‚ÆŽÀs‚Å‚«‚Ü‚¹‚ñD
+Notion
+------
 
-	-mtdƒtƒ@ƒCƒ‹¶¬‚Ì‚½‚ßCnumpy
+	1.Except for specific files (i.e., csv and tsv), the delimiter of files is tab.
+	
+	2. In the objective data file (i.e., .mtd file),   each column is about each objective function value, and each row is the objective vectors of each solutions. In each row, you prefer to NOT end with delimiter (i.e., tab). this script may miscalclate.
 
-	-•À—ñŽÀs‚Ì‚½‚ß multiprocessing
+	3 .mtdãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç”Ÿæˆã™ã‚‹éš›ã«ï¼ŒæŒ‡å®šã—ãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‹ã‚‰FinalFUNãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¾ã§ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ï¼ŒOBJãŒã‚ã‚‹å ´åˆ( result/NSGAII/DTLZ1/2OBJ/FinalFUN/)ï¼Œãã®OBJã¨/ã§å›²ã¾ã‚ŒãŸæ•°å­—ãŒç›®çš„é–¢æ•°åœ°ã ã¨åˆ¤æ–­ã•ã‚Œã‚‹ï¼ˆä¾‹ãªã‚‰2OBJãªã®ã§2ç›®çš„)
+	
+	4 .mtdãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã™ã‚‹éš›ï¼ŒåŒåã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¶ˆã—ã¦ã‹ã‚‰å‡ºåŠ›ã•ã‚Œã‚‹ï¼Ž
 
-‚ª‚»‚ê‚¼‚ê•K—v‚Æ‚È‚è‚Ü‚·D
+	5.HpyerVolumeã‚„IGDè¨ˆç®—ã‚¹ã‚¯ãƒªãƒ—ãƒˆã¯åˆ¥é€”ä½œæˆã™ã‚‹å¿…è¦ãŒã‚ã‚‹ï¼Ž
 
-‚È‚Ì‚ÅAnaconda‚ð“ü‚ê‚é‚±‚Æ‚ð„§‚µ‚Ü‚·D
-
-ƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚¢‚È‚¯‚ê‚Î‚µ‚ÄCƒCƒ“ƒXƒg[ƒ‹‚µ‚½‚¯‚Çpath‚ª’Ê‚Á‚Ä‚¢‚È‚¢ê‡‚ÍCƒoƒbƒ`ƒtƒ@ƒCƒ‹‚âƒVƒFƒ‹‚ðŽg—p‚µ‚ÄCƒpƒX‚ð’Ê‚·‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢
-
-set PATH = (Anaconda‚Ö‚ÌƒpƒX);%PATH% ƒoƒbƒ`ƒtƒ@ƒCƒ‹
-
-PATH = (Anaconda‚Ö‚ÌƒpƒX):$PATH ƒVƒFƒ‹ƒXƒNƒŠƒvƒg
-
-‚ÅƒpƒX‚ð’Ê‚¹‚é‚Í‚¸
-
-
-’ˆÓŽ–€
+å®Ÿè£…æ€æƒ³
 --------
 
-	1.ƒtƒ@ƒCƒ‹‚Ìƒfƒ~ƒŠƒ^‚Ícsvƒtƒ@ƒCƒ‹‚âCtsvƒtƒ@ƒCƒ‹‚È‚Ç“Á—á‚ðœ‚«ƒfƒ~ƒŠƒ^‚Íƒ^ƒu‚Å‚ ‚éD
-	
-	2.ŒÂ‘ÌŒQƒf[ƒ^ƒtƒ@ƒCƒ‹‚ÍCŠes‚ÉŒÂ‘ÌŒQ‚ÌŠeŒÂ‘Ì‚Ì–Ú“IŠÖ”’l‚ª‹LÚ‚³‚ê‚Ä‚¢‚é‚ªCŠesCƒfƒ~ƒŠƒ^‚ÅI—¹‚µ‚È‚¢‚±‚Æ‚ð„§‚·‚éD³‚µ‚­ŒvŽZ‚³‚ê‚È‚¢‹°‚ê‚ª‚ ‚éD
+ä¸€ã¤ã®ãƒ¡ã‚¤ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’å®Ÿè¡Œã™ã‚‹ã¨ï¼Œå…¨ã¦ã®å®Ÿè¡ŒãŒè¡Œãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ï¼Ž
+å¤šæ•°ç›®çš„ã«ã‚‚å¯¾å¿œã§ãã‚‹ã‚ˆã†ã«ï¼Œä¸¦åˆ—ã§è¡Œã†å¿…è¦ã‚ã‚Šï¼Ž
 
-	3.mtdƒtƒ@ƒCƒ‹‚ð¶¬‚·‚éÛ‚ÉCŽw’è‚µ‚½ƒfƒBƒŒƒNƒgƒŠ‚©‚çFinalFUNƒfƒBƒŒƒNƒgƒŠ‚Ü‚Å‚ÌƒfƒBƒŒƒNƒgƒŠ‚ÉCOBJ‚ª‚ ‚éê‡( result/NSGAII/DTLZ1/2OBJ/FinalFUN/)C‚»‚ÌOBJ‚Æ/‚ÅˆÍ‚Ü‚ê‚½”Žš‚ª–Ú“IŠÖ”’n‚¾‚Æ”»’f‚³‚ê‚éi—á‚È‚ç2OBJ‚È‚Ì‚Å2–Ú“I)
-	
-	4.mtdƒtƒ@ƒCƒ‹‚ðì¬‚·‚éÛC“¯–¼‚Ìƒtƒ@ƒCƒ‹‚ðÁ‚µ‚Ä‚©‚ço—Í‚³‚ê‚éD
-
-	5.HpyerVolume‚âIGDŒvŽZƒXƒNƒŠƒvƒg‚Í•Ê“rì¬‚·‚é•K—v‚ª‚ ‚éD
-
-ŽÀ‘•Žv‘z
---------
-
-ˆê‚Â‚ÌƒƒCƒXƒNƒŠƒvƒg‚ðŽÀs‚·‚é‚ÆC‘S‚Ä‚ÌŽÀs‚ªs‚¦‚é‚æ‚¤‚É‚·‚éD
-‘½”–Ú“I‚É‚à‘Î‰ž‚Å‚«‚é‚æ‚¤‚ÉC•À—ñ‚Ås‚¤•K—v‚ ‚èD
-
-ŠeƒXƒNƒŠƒvƒgà–¾
+å„ã‚¹ã‚¯ãƒªãƒ—ãƒˆèª¬æ˜Ž
 -----------------
 
 start.py
-	ƒƒCƒ“ƒXƒNƒŠƒvƒg
+	ãƒ¡ã‚¤ãƒ³ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
 
 toolbox/CalcHV.py:
 
-	toolbox/Calclator/hv.bat‚ð‹N“®‚µ‚ÄHyperVolumeŒvŽZ‚ðs‚¤ŠÖ”‚ª‚ ‚éDŒÂ‘ÌŒQ‚ÌŒ`Ž®‚ÍŒ»Ýmtdƒtƒ@ƒCƒ‹‚Ì‚ÝƒTƒ|[ƒg
+	toolbox/Calclator/hv.batã‚’èµ·å‹•ã—ã¦HyperVolumeè¨ˆç®—ã‚’è¡Œã†é–¢æ•°ãŒã‚ã‚‹ï¼Žå€‹ä½“ç¾¤ã®å½¢å¼ã¯ç¾åœ¨mtdãƒ•ã‚¡ã‚¤ãƒ«ã®ã¿ã‚µãƒãƒ¼ãƒˆ
 
-	ƒpƒCƒvƒ‰ƒCƒ“o—Í‚É‚æ‚èƒtƒ@ƒCƒ‹‚É‘‚«ž‚ÞDƒfƒBƒŒƒNƒgƒŠ‚ÍŒÂ‘ÌŒQƒtƒ@ƒCƒ‹‚ª‚ ‚éƒfƒBƒŒƒNƒgƒŠ‚Éo—ÍD
+	ãƒ‘ã‚¤ãƒ—ãƒ©ã‚¤ãƒ³å‡ºåŠ›ã«ã‚ˆã‚Šãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€ï¼Žãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¯å€‹ä½“ç¾¤ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«å‡ºåŠ›ï¼Ž
 
 toolbox/CalcIGD.py
 	
-	toolbox/Calclator/igd.bat‚ð‹N“®‚µ‚ÄIGD‚ðŒvŽZ‚·‚éDŠî–{“I‚ÉCalcHV.py ‚ÌIGDƒo[ƒWƒ‡ƒ“G
+	toolbox/Calclator/igd.batã‚’èµ·å‹•ã—ã¦IGDã‚’è¨ˆç®—ã™ã‚‹ï¼ŽåŸºæœ¬çš„ã«CalcHV.py ã®IGDãƒãƒ¼ã‚¸ãƒ§ãƒ³ï¼›
 	
-	ŽQÆ“_‚Ítoolbox/RefFiles‚É•ÛŠÇ—\’è
+	å‚ç…§ç‚¹ã¯toolbox/RefFilesã«ä¿ç®¡äºˆå®š
 	
 toolbox/CommandLine.py
 	
-	ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‰ðÍƒNƒ‰ƒX
+	ã‚³ãƒžãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³è§£æžã‚¯ãƒ©ã‚¹
 	
-	-h true ‚È‚Ç‚ðs‚¤‚±‚Æ‚É‚æ‚ès‚¢‚½‚¢ŽÀs‚âÝ’è‚ÌŽw’è‚ðs‚¤D
+	-h true ãªã©ã‚’è¡Œã†ã“ã¨ã«ã‚ˆã‚Šè¡Œã„ãŸã„å®Ÿè¡Œã‚„è¨­å®šã®æŒ‡å®šã‚’è¡Œã†ï¼Ž
 	
 toolbox/ErrorMassage.py
 	
-	Assertion‚È‚Ç‚Ì–ðŠ„‚ðs‚¤ŠÖ”‚ðˆµ‚¤ƒXƒNƒŠƒvƒg
+	Assertionãªã©ã®å½¹å‰²ã‚’è¡Œã†é–¢æ•°ã‚’æ‰±ã†ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
 	
-	ErroMassage‚ðŽg—pD
+	ErroMassageã‚’ä½¿ç”¨ï¼Ž
 	
 toolbox/NDSort.py
 	
-	”ñ—ò‰ðƒ\[ƒg‚ðs‚¤ƒXƒNƒŠƒvƒgD‚±‚ê‚Æmtdƒtƒ@ƒCƒ‹‚ð‡‚í‚¹‚é—\’è
+	éžåŠ£è§£ã‚½ãƒ¼ãƒˆã‚’è¡Œã†ã‚¹ã‚¯ãƒªãƒ—ãƒˆï¼Žã“ã‚Œã¨mtdãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆã‚ã›ã‚‹äºˆå®š
 	
 toolbox/Normalization.py
 
-	FinalFUƒfƒBƒŒƒNƒgƒŠ‚ÌŒZ’íƒfƒBƒŒƒNƒgƒŠ‚Æ‚µ‚ÄNFinalFUN‚ðì¬‚µCFinalFUN‚ÌMaxPoint ‚Æ MinPoint‚ðŽg—p‚µ‚Ä³‹K‰»‚ðs‚¢CNFianlFUN‚Éo—Í‚·‚éD
-	³‹K‰»‚ðs‚¤ƒXƒNƒŠƒvƒg
+	FinalFUãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å…„å¼Ÿãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¨ã—ã¦NFinalFUNã‚’ä½œæˆã—ï¼ŒFinalFUNã®MaxPoint ã¨ MinPointã‚’ä½¿ç”¨ã—ã¦æ­£è¦åŒ–ã‚’è¡Œã„ï¼ŒNFianlFUNã«å‡ºåŠ›ã™ã‚‹ï¼Ž
+	æ­£è¦åŒ–ã‚’è¡Œã†ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
 	
 toolbox/GetFileName.py	
 
-	Žw’è‚µ‚½ƒfƒBƒŒƒNƒgƒŠ‚ÌŽqCŽq‘·ƒfƒBƒŒƒNƒgƒŠ‚ð’Tõ‚µC“Á’è‚Ìƒtƒ@ƒCƒ‹‚Ü‚½‚ÍCƒfƒBƒŒƒNƒgƒŠ‚ð’Tõ‚·‚éD
+	æŒ‡å®šã—ãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å­ï¼Œå­å­«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŽ¢ç´¢ã—ï¼Œç‰¹å®šã®ãƒ•ã‚¡ã‚¤ãƒ«ã¾ãŸã¯ï¼Œãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŽ¢ç´¢ã™ã‚‹ï¼Ž
 	
 toolbox/MakeMTDFile/py
 	
-	Žw’è‚µ‚½ƒfƒBƒŒƒNƒgƒŠ‚ÌŽqCŽq‘·ƒfƒBƒŒƒNƒgƒŠ‚ð’Tõ‚µCFinalFUNƒfƒBƒŒƒNƒgƒŠ‚ð’Tõ‚µmtdƒtƒ@ƒCƒ‹‚ð¶¬‚·‚éD
+	æŒ‡å®šã—ãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å­ï¼Œå­å­«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŽ¢ç´¢ã—ï¼ŒFinalFUNãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŽ¢ç´¢ã—mtdãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç”Ÿæˆã™ã‚‹ï¼Ž
 	
 	
-¡Œã‚Ì—\’è
+ä»Šå¾Œã®äºˆå®š
 ----------
 
-	E•À—ñ‰»ˆ—
+	ãƒ»ä¸¦åˆ—åŒ–å‡¦ç†
 	
-	EƒRƒ}ƒ“ƒh‚Ì[ŽÀ
+	ãƒ»ã‚³ãƒžãƒ³ãƒ‰ã®å……å®Ÿ
 	
-	EƒOƒ‰ƒtƒvƒƒbƒgƒXƒNƒŠƒvƒg‚Ì’Ç‰Á
+	ãƒ»ã‚°ãƒ©ãƒ•ãƒ—ãƒ­ãƒƒãƒˆã‚¹ã‚¯ãƒªãƒ—ãƒˆã®è¿½åŠ 
 	
 version
 -------
